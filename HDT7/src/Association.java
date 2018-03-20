@@ -6,8 +6,11 @@
 
 /**
  *
- * @author Luis
+ * @author Luis Esturban 17256
+ * @author Gustavo De León 17085
  */
+
+//Clase Association extraida del libro JavaStructures
 public class Association<K,V>
 {
     /**

@@ -6,8 +6,10 @@
 
 /**
  *
- * @author Luis
+ * @author Luis Esturban 17256
+ * @author Gustavo De León 17085
  */
+//Clase BinaryTree Extraida de Canvas y modificada con el libro JavaStructures
 public class BinaryTree<E>
 {
     protected E val; // value associated with node

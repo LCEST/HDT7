@@ -6,10 +6,12 @@
 
 /**
  *
- * @author Luis
+ * @author Luis Esturban 17256
+ * @author Gustavo De León 17085
  */
 public class Main {
     public static void main (String[] args){
+        System.out.println("Bienvenido al traductor");
         Diccionario miDiccionario=new Diccionario();
     }
 }

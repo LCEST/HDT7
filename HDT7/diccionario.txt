@@ -1,5 +1,7 @@
+do,hacer
 house,casa
 dog,perro
+and, y
 homework,tarea
 woman,mujer
 town,pueblo

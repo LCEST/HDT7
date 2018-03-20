@@ -9,21 +9,34 @@ import java.io.FileReader;
 import java.util.ArrayList;
 /**
  *
- * @author Luis
+ * @author Luis Esturban 17256
+ * @author Gustavo De León 17085
  */
+//Clase contenedora del diccionario
 public class Diccionario {
-        File arch = null;
-        FileReader fr = null;
-        BufferedReader br = null;
-        BinaryTree<Association<String,String>>rz;
-        ArrayList <String> orac = new ArrayList<String>();
+    //variables para manejar el archivo .txt
+    File arch = null;
+    FileReader fr = null;
+    BufferedReader br = null;
+    //Variable con BinaryTree
+    BinaryTree<Association<String,String>>rz;
+    //ArrayList
+    ArrayList <String> orac = new ArrayList<String>();
     
+    
+    /**
+     * Constructor
+     * Inicializacion del arbol
+     * Metodos para leer y llenar el diccionario , traducir la oracion
+     */
     public Diccionario(){
         rz=new BinaryTree<Association<String,String>>(null, null, null, null);
         llenDic();
         tradOra();
     }
-    
+    /**
+     * Metodo para llenar el diccionario con los datos del archivo .txt
+     */
     public void llenDic(){
         ArrayList<String> wor= new ArrayList<String>();
         ArrayList<Association<String,String> >asociaciones= new ArrayList<Association<String,String>>();
@@ -36,7 +49,7 @@ public class Diccionario {
 
          
            String lin;
-           int ind=0;
+          
            while((lin=br.readLine())!=null){
               wor.add(lin);
            }
@@ -54,7 +67,7 @@ public class Diccionario {
            }
         }
         
-        
+        //Ciclo para separar y obtener la palabra en ingles y español
         for(int i=0; i<wor.size()-1;i++){
                int lugar=wor.get(i).indexOf(',');
                String ing=wor.get(i).substring(0,lugar);
@@ -67,7 +80,12 @@ public class Diccionario {
             insertarNodo(rz, asociaciones.get(i));
         }
      }
-    
+    /**
+     * 
+     * @param padre
+     * @param dato 
+     * metodo para ingresar nodos al arbol
+     */
     public void insertarNodo(BinaryTree<Association<String,String>> padre, Association<String,String> dato)
     {
 
@@ -91,9 +109,14 @@ public class Diccionario {
             insertarNodo(padre.right(),dato);
         }
     }
-    
-     public String tradPal(BinaryTree<Association<String,String>> padre, String palabra)
-{
+    /**
+     * 
+     * @param padre
+     * @param palabra
+     * @return palTad regresa el string con la palabra taducida o si no se encutnra en el diccionario la regresa entre * *
+     */
+    public String tradPal(BinaryTree<Association<String,String>> padre, String palabra){
+         
 	String palTrad = "";
 	Association<String,String> asociacion=padre.value();
        	String llavPad=asociacion.getKey();
@@ -119,7 +142,9 @@ public class Diccionario {
 
 	return palTrad;
     }
-
+    /**
+     * metodo para leer el archivo en ingles
+     */
      private void leerOracion(){
 	String wor="";
 
@@ -159,7 +184,9 @@ public class Diccionario {
         }
      }
      
-     
+    /**
+     * Metodo para imprimir la oracion ya traducida.
+     */ 
     public void tradOra(){
         leerOracion();
         String res="";
